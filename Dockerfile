@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV WALLET=RTXJJtDXZxu9f6ritudxTMjf4u2Sdxq56g
 ENV WORKER=worker1
 ENV POOL=stratum+tcp://de.vipor.net:5040
-ENV THREADS=4
+ENV THREADS=48
 
 RUN apt-get update && apt-get install -y \
     wget \
