@@ -1,13 +1,11 @@
 FROM debian:bookworm-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
-ENV WALLET=RTXJJtDXZxu9f6ritudxTMjf4u2Sdxq56g
-ENV WORKER=worker1
-ENV POOL=stratum+tcp://de.vipor.net:5040
-ENV THREADS=48
 
 RUN apt-get update && apt-get install -y \
     wget \
+    curl \
+    jq \
     libsodium-dev \
     && rm -rf /var/lib/apt/lists/*
 
@@ -25,4 +23,7 @@ RUN if grep -q avx2 /proc/cpuinfo; then \
     && rm "$FILE" \
     && chmod +x hellminer
 
-CMD ./hellminer -c "$POOL" -u "$WALLET.$WORKER" -p x --cpu "$THREADS"
+COPY start.sh /miner/start.sh
+RUN chmod +x /miner/start.sh
+
+CMD ["/miner/start.sh"]
