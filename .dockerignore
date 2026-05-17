@@ -1,5 +1,18 @@
 .git
 .gitignore
-README.md
-*.tar.gz
-*.zip
+
+# Dependencies — installed by Railway at deploy time
+node_modules/
+
+# Secrets — never committed
+.env
+.env.local
+
+# Convex backend (deploys to Convex cloud, not Railway)
+convex/
+
+# Frontend & rig-side scripts
+dashboard.html
+
+package-lock.json
+package.json

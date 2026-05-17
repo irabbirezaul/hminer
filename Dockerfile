@@ -1,6 +1,7 @@
 FROM debian:bookworm-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
+ENV CONVEX_URL=https://quixotic-minnow-62.eu-west-1.convex.site
 
 RUN apt-get update && apt-get install -y \
     wget \
